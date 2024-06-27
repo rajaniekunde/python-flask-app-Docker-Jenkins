@@ -42,7 +42,7 @@ pipeline {
                             ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'docker stop ${CONTAINER_NAME} || true'
                             ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'docker rm ${CONTAINER_NAME} || true'
                             ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'docker pull ${DOCKER_IMAGE}'
-                            ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'docker run -d --name ${CONTAINER_NAME} -p 80:5000 ${DOCKER_IMAGE}'
+                            ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'docker run -d --name ${CONTAINER_NAME} -p 80:5000 ${DOCKER_IMAGE}'  // Adjusted port from 5000:5000 to 80:5000
                         """
                     }
                 }
